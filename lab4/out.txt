@@ -1,0 +1,4 @@
+Bob	Connor	28.64
+Tyler	McCarthy	31.04
+Jason	Scott	32.02
+Alice	Smith	23.24

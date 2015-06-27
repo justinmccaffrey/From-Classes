@@ -1,0 +1,49 @@
+/*
+Justin McCaffrey
+CSE 2561 - M 8:00
+Lab 1
+*/
+
+#include <stdio.h>
+#include <math.h>
+
+int isPrime(int);
+int twinPrimesCount(int[],int);
+
+main(){
+int input,i,primeCount=0;
+printf("%s","Enter a positive integer greater than 1: ");
+scanf("%d",&input);
+int primes[input];
+if(input<200 && input>1){
+	printf("Primes from 2 to %d: \n",input);
+	for (i=2;i<=input;i++){
+		if (isPrime(i)){
+			primes[primeCount]=i;
+			primeCount++;
+			printf("%d  ",i);
+		}
+	}
+printf("\nAmongst these there are %d twin primes.",twinPrimesCount(primes,primeCount));
+}
+}
+
+int twinPrimesCount(int primes[],int primeCount){
+int count=0,i;
+for(i=0;i<primeCount;i++){
+if ((primes[i]+2)==primes[i+1] || (primes[i]+2)==primes[i+2])
+	count++;
+}
+return count;
+}
+
+int isPrime(int number){
+int j;
+	if(number==2)
+		return 1;
+	for (j=2;j<=sqrt(number);j++){
+		if (number!=j && number%j==0)
+			return 0;
+	}
+	return 1;
+}
